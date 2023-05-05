@@ -100,7 +100,7 @@ public class Controller {
     @FXML
     private void musicButtonPressed(ActionEvent event) {
         if (isMusicOn) {
-            mediaPlayer.stop();
+            mediaPlayer.pause();
             musicButton.setText("Music On");
         } else {
             Media media = new Media (new File(path).toURI().toString());
@@ -109,9 +109,6 @@ public class Controller {
             musicButton.setText("Music Off");
         }
         isMusicOn = !isMusicOn;
-
-
-
     }
 
     public void music() {

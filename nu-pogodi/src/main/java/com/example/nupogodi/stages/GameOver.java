@@ -1,5 +1,6 @@
 package com.example.nupogodi.stages;
 
+import com.example.nupogodi.Main;
 import com.example.nupogodi.models.HighScore;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -10,19 +11,28 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class GameOver {
     private static final String title = "Game Over | Nu Pogodi!";
     private static final int width = 480, height = 325;
 
+
     public static void display(int score) {
+
+
+
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(title);
+        stage.setResizable(false);
 
         VBox layout = new VBox();
         Scene scene = new Scene(layout, width, height);

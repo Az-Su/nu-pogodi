@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class LeaderBoard {
     public static void display() {
         Stage stage = new Stage();
+        stage.setResizable(false);
 
 
         int width = 669, height = 450;
