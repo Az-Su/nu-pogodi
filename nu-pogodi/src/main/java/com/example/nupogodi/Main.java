@@ -18,7 +18,7 @@ public class Main extends Application {
         //Size of main background image
         int width = 512, height = 303;
 
-        FXMLLoader fxmlTest = new FXMLLoader(HelloApplication.class.getResource("main.fxml"));
+        FXMLLoader fxmlTest = new FXMLLoader(Main.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlTest.load());
         stage.setScene(scene);
         stage.setTitle(title);

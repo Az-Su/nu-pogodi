@@ -16,7 +16,7 @@
       </ImageView>
       <VBox alignment="CENTER" layoutX="216.0" layoutY="167.0" prefHeight="224.0" prefWidth="298.0" spacing="10.0">
          <children>
-            <Button fx:id="play_button" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Play">
+            <Button fx:id="play_button" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" snapToPixel="false" text="Play">
                <font>
                   <Font size="18.0" />
                </font>
