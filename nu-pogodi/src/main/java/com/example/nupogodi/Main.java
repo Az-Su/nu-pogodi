@@ -4,6 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 
 public class Main extends Application {
     final String title = "Nu Pogodi!";
@@ -25,5 +28,6 @@ public class Main extends Application {
         stage.setResizable(false);
 
         stage.show();
+
     }
 }

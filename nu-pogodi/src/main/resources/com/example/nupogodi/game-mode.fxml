@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="720.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nupogodi.Controller">
+   <children>
+      <ImageView fitHeight="495.0" fitWidth="720.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@main-background.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" layoutX="216.0" layoutY="167.0" prefHeight="224.0" prefWidth="298.0" spacing="10.0">
+         <children>
+            <Button fx:id="easyButton" mnemonicParsing="false" onAction="#easyButtonPressed" prefHeight="60.0" prefWidth="150.0" snapToPixel="false" text="Easy">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="normalButton" mnemonicParsing="false" onAction="#normalButtonPressed" prefHeight="60.0" prefWidth="150.0" text="Normal">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="hardButton1" mnemonicParsing="false" onAction="#hardButtonPressed" prefHeight="60.0" prefWidth="150.0" text="Hard">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="60.0" prefWidth="150.0" text="Back">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
