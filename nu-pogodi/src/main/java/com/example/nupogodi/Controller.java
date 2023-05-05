@@ -9,11 +9,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Controller {
+
+    private MediaPlayer mediaPlayer;
+    private boolean isMusicOn = false;
+    String path = getClass().getResource ("main.mp3").getPath ();
+
+
     @FXML
     private Button playButton;
 
@@ -31,6 +40,9 @@ public class Controller {
 
     @FXML
     private Button hardButton;
+
+    @FXML
+    private Button musicButton;
 
     @FXML
     private void playButtonPressed(ActionEvent event) throws IOException {
@@ -85,6 +97,32 @@ public class Controller {
         Game.start(3);
     }
 
+    @FXML
+    private void musicButtonPressed(ActionEvent event) {
+        if (isMusicOn) {
+            mediaPlayer.stop();
+            musicButton.setText("Music On");
+        } else {
+            Media media = new Media (new File(path).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.play();
+            musicButton.setText("Music Off");
+        }
+        isMusicOn = !isMusicOn;
+
+
+
+    }
+
+    public void music() {
+        String path = getClass().getResource ("main.mp3").getPath ();
+        System.out.println(new File(path).toURI().toString());
+        Media media = new Media (new File(path).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+
+    }
 
 
 }

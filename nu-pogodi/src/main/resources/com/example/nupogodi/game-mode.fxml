@@ -38,5 +38,6 @@
             </Button>
          </children>
       </VBox>
+      <Button fx:id="musicButton" layoutX="24.0" layoutY="361.0" mnemonicParsing="false" onAction="#musicButtonPressed" prefHeight="40.0" prefWidth="91.0" text="Music On\Off" />
    </children>
 </AnchorPane>

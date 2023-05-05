@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:controller="com.example.nupogodi.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="720.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="720.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nupogodi.Controller">
    <children>
       <ImageView fitHeight="495.0" fitWidth="720.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,5 +33,6 @@
             </Button>
          </children>
       </VBox>
+      <Button fx:id="musicButton" layoutX="14.0" layoutY="351.0" mnemonicParsing="false" onAction="#musicButtonPressed" prefHeight="40.0" prefWidth="91.0" text="Music On" />
    </children>
 </AnchorPane>
