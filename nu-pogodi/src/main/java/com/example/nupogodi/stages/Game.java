@@ -1,5 +1,6 @@
 package com.example.nupogodi.stages;
 
+import com.example.nupogodi.Main;
 import com.example.nupogodi.exceptions.GameOverException;
 import com.example.nupogodi.frames.*;
 import javafx.application.Platform;
@@ -8,26 +9,41 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Game {
     private static Stage stage;
     private static StackPane layout;
     private static boolean gameOver = false;
-    private static final int updateInterval = 300;
-    private static final int addEggStartInterval = 2000;
+    private static int updateInterval = 300;
+    private static int addEggStartInterval = 2000;
     private static int addEggMinInterval = 0;
     private static final int width = 720, height = 441;
     private static final String title = "Collect Eggs | Nu Pogodi!";
-    private static final WolfFrame wolf = new WolfFrame();
-    private static final LivesFrame lives = new LivesFrame();
-    private static final ScoreFrame score = new ScoreFrame();
-    private static final ArrayList<EggFrame> eggs = new ArrayList<>();
+    private static WolfFrame wolf = null;
+    private static LivesFrame lives = null;
+    private static ScoreFrame score = null;
+    private static ArrayList<EggFrame> eggs = null;
+
+    private static MediaPlayer mediaPlayer;
+
 
     public static void start(Integer level) {
+        System.out.println("GAME STARTED!");
+        lives = new LivesFrame();
+        score = new ScoreFrame();
+        eggs = new ArrayList<>();
+        wolf = new WolfFrame();
+        addEggMinInterval = 0;
+        addEggStartInterval = 2000;
+        updateInterval = 300;
+        gameOver = false;
 
         switch (level) {
             case 1:
@@ -45,6 +61,7 @@ public class Game {
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(title);
+        stage.setResizable(false);
 
         //Set layout programmatically
         layout = new StackPane();
@@ -111,6 +128,10 @@ public class Game {
 
                 if (wolf.getDirection() == egg.getDirection()) {
                     score.incrementScore();
+                    String path = Main.class.getResource ("score.mp3").getPath ();
+                    Media media = new Media (new File(path).toURI().toString());
+                    mediaPlayer = new MediaPlayer(media);
+                    mediaPlayer.play();
                 } else {
                     try {
                         lives.decrementLive();
@@ -136,7 +157,12 @@ public class Game {
     }
     private static void stopGame() {
         Platform.runLater(() -> {
+            String path = Main.class.getResource ("zastavka.mp3").getPath ();
+            Media media = new Media (new File(path).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.play();
             GameOver.display(score.getScore());
+            mediaPlayer.stop();
             stage.close();
         });
     }
